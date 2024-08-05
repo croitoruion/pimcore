@@ -276,6 +276,10 @@ class Composer
         $options = static::getOptions($event);
         $consoleDir = static::getConsoleDir($event, 'clear the cache');
 
+        if (!file_exists(PIMCORE_PROJECT_ROOT .'/config/local/database.yaml')){
+            return;
+        }
+        
         if (null === $consoleDir) {
             return;
         }
